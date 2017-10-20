@@ -1,27 +1,26 @@
 import React from 'react';
+import MyButton from './Button.js';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Hello'
+      city: 'Beijing'
     }
-    this.clickHandler = this.clickHandler.bind(this);
-  }
-  clickHandler() {
-    this.setState({
-      text: 'Beijing'
-    });
-    console.log(this.state.text);
   }
   render() {
+    console.log(ReactDOM.findDOMNode(this));
     return (
       <div>
-        <h1>Hello World</h1>
-        <button onClick={this.clickHandler}>Click</button>
+        {this.props.name}
       </div>
     );
   }
+}
+
+App.defaultProps = {
+  name: 'default'
 }
 
 export default App;
